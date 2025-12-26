@@ -43,5 +43,3 @@ END $$;
     await queryRunner.query(`ALTER TABLE "raffle" DROP COLUMN "productId"`);
   }
 }
-
-

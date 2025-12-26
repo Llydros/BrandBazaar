@@ -13,5 +13,3 @@ export class AddUserLastSeenAt1735239000000 implements MigrationInterface {
     await queryRunner.query(`ALTER TABLE "users" DROP COLUMN "lastSeenAt"`);
   }
 }
-
-

@@ -102,13 +102,13 @@ export class AdminService {
       this.orderRepository.count({
         where: {
           createdAt: MoreThanOrEqual(currentMonthStart),
-        } as any,
+        },
       }),
 
       this.orderRepository.count({
         where: {
           createdAt: MoreThanOrEqual(previousMonthStart),
-        } as any,
+        },
       }),
 
       this.productRepository.count(),

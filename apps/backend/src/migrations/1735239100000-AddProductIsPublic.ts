@@ -13,5 +13,3 @@ export class AddProductIsPublic1735239100000 implements MigrationInterface {
     await queryRunner.query(`ALTER TABLE "product" DROP COLUMN "isPublic"`);
   }
 }
-
-

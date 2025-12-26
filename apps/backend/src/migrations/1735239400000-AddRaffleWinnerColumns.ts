@@ -49,11 +49,11 @@ END $$;
     await queryRunner.query(
       `ALTER TABLE "raffle" DROP COLUMN "winnerPurchaseDeadline"`,
     );
-    await queryRunner.query(`ALTER TABLE "raffle" DROP COLUMN "currentWinnerId"`);
+    await queryRunner.query(
+      `ALTER TABLE "raffle" DROP COLUMN "currentWinnerId"`,
+    );
     await queryRunner.query(
       `ALTER TABLE "raffle" DROP COLUMN "winnerSelectionStartedAt"`,
     );
   }
 }
-
-

@@ -357,7 +357,11 @@ export class ProductsService {
 
   private mapProduct(product: Product): Product {
     if (product) {
-      const p = product as any;
+      const p = product as Product & {
+        images: string[] | string;
+        tags: string[] | string;
+      };
+
       if (typeof p.images === 'string') {
         p.images = p.images ? p.images.split(',') : [];
       }

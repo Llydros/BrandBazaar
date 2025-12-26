@@ -347,15 +347,8 @@ async function seed() {
       }),
     ];
 
-    // Convert arrays to comma-separated strings for simple-array columns
-    products.forEach((product) => {
-      if (Array.isArray(product.images)) {
-        product.images = product.images.join(',') as any;
-      }
-      if (Array.isArray(product.tags)) {
-        product.tags = product.tags.join(',') as any;
-      }
-    });
+    // Note: `images` and `tags` are `simple-array` columns in TypeORM.
+    // TypeORM will serialize string[] automatically, so we keep them as arrays here.
 
     const savedProducts = await productRepository.save(products);
     console.log(`Created ${savedProducts.length} products`);

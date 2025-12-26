@@ -35,6 +35,7 @@ import {
 } from './products.dto';
 import { RolesGuard, Roles } from '../auth/roles.guard';
 import { UserRole } from '../entities/user.entity';
+import type { Request as ExpressRequest } from 'express';
 
 @ApiTags('products')
 @Controller('products')
@@ -169,7 +170,7 @@ export class ProductsController {
   async createReview(
     @Param('id') productId: string,
     @Body() createReviewDto: CreateReviewDto,
-    @Request() req: any,
+    @Request() req: ExpressRequest & { cookies?: { session?: string } },
   ) {
     const sessionToken = req.cookies?.session;
     if (!sessionToken) {
