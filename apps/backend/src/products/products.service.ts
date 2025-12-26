@@ -357,13 +357,12 @@ export class ProductsService {
 
   private mapProduct(product: Product): Product {
     if (product) {
-      const p: Product & {
-        images: string[] | string;
-        tags: string[] | string;
-      } = product as Product & {
+      // TypeORM's simple-array columns can be string or string[]
+      type ProductWithFlexibleArrays = Product & {
         images: string[] | string;
         tags: string[] | string;
       };
+      const p = product as unknown as ProductWithFlexibleArrays;
 
       if (typeof p.images === 'string') {
         p.images = p.images ? p.images.split(',') : [];

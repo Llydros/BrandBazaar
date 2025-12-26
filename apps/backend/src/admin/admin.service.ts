@@ -22,6 +22,10 @@ interface DashboardStats {
   revenueChartData: RevenueDataPoint[];
 }
 
+interface RawRevenueResult {
+  total: string;
+}
+
 @Injectable()
 export class AdminService {
   constructor(
@@ -78,8 +82,8 @@ export class AdminService {
         .where('order.status IN (:...statuses)', {
           statuses: [OrderStatus.PAID, OrderStatus.DELIVERED],
         })
-        .getRawOne()
-        .then((result: { total: string } | undefined) =>
+        .getRawOne<RawRevenueResult>()
+        .then((result: RawRevenueResult | undefined) =>
           parseFloat(result?.total || '0'),
         ),
 
@@ -100,8 +104,8 @@ export class AdminService {
           statuses: [OrderStatus.PAID, OrderStatus.DELIVERED],
         })
         .andWhere('order.createdAt >= :start', { start: currentMonthStart })
-        .getRawOne()
-        .then((result: { total: string } | undefined) =>
+        .getRawOne<RawRevenueResult>()
+        .then((result: RawRevenueResult | undefined) =>
           parseFloat(result?.total || '0'),
         ),
 
@@ -113,8 +117,8 @@ export class AdminService {
         })
         .andWhere('order.createdAt >= :start', { start: previousMonthStart })
         .andWhere('order.createdAt < :end', { end: currentMonthStart })
-        .getRawOne()
-        .then((result: { total: string } | undefined) =>
+        .getRawOne<RawRevenueResult>()
+        .then((result: RawRevenueResult | undefined) =>
           parseFloat(result?.total || '0'),
         ),
 

@@ -350,7 +350,7 @@ async function seed() {
     // Note: `images` and `tags` are `simple-array` columns in TypeORM.
     // TypeORM will serialize string[] automatically, so we keep them as arrays here.
 
-    const savedProducts = await productRepository.save(products);
+    const savedProducts: Product[] = await productRepository.save(products);
     console.log(`Created ${savedProducts.length} products`);
 
     // Create Reviews
