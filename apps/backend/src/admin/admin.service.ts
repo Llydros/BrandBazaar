@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, MoreThanOrEqual } from 'typeorm';
+import { Repository, MoreThanOrEqual, FindOptionsWhere } from 'typeorm';
 import { Order, OrderStatus } from '../entities/order.entity';
 import { Product } from '../entities/product.entity';
 import { User } from '../entities/user.entity';
@@ -58,6 +58,19 @@ export class AdminService {
       previousProducts,
       currentActiveUsers,
       previousActiveUsers,
+    ]: [
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
     ] = await Promise.all([
       this.orderRepository
         .createQueryBuilder('order')
@@ -66,7 +79,9 @@ export class AdminService {
           statuses: [OrderStatus.PAID, OrderStatus.DELIVERED],
         })
         .getRawOne()
-        .then((result) => parseFloat(result.total || '0')),
+        .then((result: { total: string } | undefined) =>
+          parseFloat(result?.total || '0'),
+        ),
 
       this.orderRepository.count(),
 
@@ -106,13 +121,13 @@ export class AdminService {
       this.orderRepository.count({
         where: {
           createdAt: MoreThanOrEqual(currentMonthStart),
-        },
+        } as FindOptionsWhere<Order>,
       }),
 
       this.orderRepository.count({
         where: {
           createdAt: MoreThanOrEqual(previousMonthStart),
-        },
+        } as FindOptionsWhere<Order>,
       }),
 
       this.productRepository.count(),
