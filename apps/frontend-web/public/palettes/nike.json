@@ -1,0 +1,119 @@
+{
+    "main": {
+        "type": "color",
+        "label": "Base Color",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "collar": {
+        "type": "color",
+        "label": "Collar",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "swoosh": {
+        "type": "color",
+        "label": "Swoosh",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "tongue": {
+        "type": "color",
+        "label": "Tongue",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "eyestay": {
+        "type": "color",
+        "label": "Eyestay",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "laces": {
+        "type": "color",
+        "label": "Shoelaces",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "midsole": {
+        "type": "color",
+        "label": "Midsole",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "nike_logo": {
+        "type": "color",
+        "label": "Logo",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "stitches": {
+        "type": "color",
+        "label": "Stitches",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#333333"
+        ]
+    },
+    "sticker_left": {
+        "type": "sticker",
+        "label": "Left Sticker",
+        "options": [
+            "/textures/transparent.png",
+            "/stickers/sticker1.png",
+            "/stickers/sticker2.png"
+        ]
+    },
+    "sticker_right": {
+        "type": "sticker",
+        "label": "Right Sticker",
+        "options": [
+            "/textures/transparent.png",
+            "/stickers/sticker1.png",
+            "/stickers/sticker2.png"
+        ]
+    }
+}

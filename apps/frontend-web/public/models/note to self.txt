@@ -1,0 +1,3 @@
+Default size: EU40 ~= 27 cm = 9 units
+Average tri count: NOT DECIDED
+Mesh Naming: mesh_{number} as in mesh_0, mesh_1

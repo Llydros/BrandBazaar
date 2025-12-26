@@ -1,0 +1,53 @@
+{
+    "mesh_0": {
+        "type": "color",
+        "label": "Base Color",
+        "options": [
+            "#CCCCCC",
+            "#F5F5F5",
+            "#A9A9A9",
+            "#333333",
+            "#0A0A0A"
+        ]
+    },
+    "mesh_1": {
+        "type": "color",
+        "label": "Shoelace Color",
+        "options": [
+            "#FF0000",
+            "#FFD700",
+            "#00FF00",
+            "#8A2BE2",
+            "#FFA500"
+        ]
+    },
+    "mesh_2": {
+        "type": "color",
+        "label": "Stripe Color",
+        "options": [
+            "#00008B",
+            "#4169E1",
+            "#1E90FF",
+            "#0000FF",
+            "#0047AB"
+        ]
+    },
+    "mesh_3": {
+        "type": "sticker",
+        "label": "Right Side Sticker",
+        "options": [
+            "textures/transparent.png",
+            "/stickers/sticker1.png",
+            "/stickers/sticker2.png"
+        ]
+    },
+    "mesh_4": {
+        "type": "sticker",
+        "label": "Left Side Sticker",
+        "options": [
+            "textures/transparent.png",
+            "/stickers/sticker1.png",
+            "/stickers/sticker2.png"
+        ]
+    }
+}

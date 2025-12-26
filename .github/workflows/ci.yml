@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️ Download your repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2️ Setup Node.js (no cache yet)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️ Setup pnpm properly
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      # 4️ Cache pnpm store for faster builds
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      # 5️ Install dependencies (uses pnpm)
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 6️ Lint both apps
+      - name: Lint Backend (NestJS)
+        run: pnpm --filter ./apps/backend lint
+
+      - name: Lint Frontend (NextJS)
+        run: pnpm --filter ./apps/frontend-web lint
+
+      # 7️ Type-check both apps
+      - name: Type Check Backend
+        run: pnpm --filter ./apps/backend typecheck
+
+      - name: Type Check Frontend
+        run: pnpm --filter ./apps/frontend-web typecheck
+
+      # 8️ Build both apps
+      - name: Build Backend
+        run: pnpm --filter ./apps/backend build
+
+      - name: Build Frontend
+        run: pnpm --filter ./apps/frontend-web build

@@ -1,0 +1,30 @@
+{
+    "mesh_1": {
+        "type": "color",
+        "label": "Colors",
+        "options": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffffff",
+            "#000000"
+        ]
+    },
+    "mesh_2": {
+        "type": "texture",
+        "label": "Textures",
+        "options": [
+            "/textures/demo_opaque.png",
+            "/textures/demo_transparent.png",
+            "/textures/transparent.png"
+        ]
+    },
+    "mesh_3": {
+        "type": "sticker",
+        "label": "Stickers",
+        "options": [
+            "/stickers/sticker1.png",
+            "/stickers/sticker2.png"
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "blg-411e-project",
+  "version": "0.1.0",
+  "description": "E-commerce project for BLG411E",
+  "main": "index.js",
+  "packageManager": "pnpm@10.18.3"
+}

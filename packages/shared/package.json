@@ -1,0 +1,15 @@
+{
+  "name": "shared",
+  "version": "0.1.0",
+  "description": "Shared modules",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "zod": "^4.1.11"
+  }
+}
