@@ -11,6 +11,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import type { Request as ExpressRequest } from 'express';
+import type { UserBadge } from '../entities/user-badge.entity';
 import {
   ApiTags,
   ApiOperation,
@@ -47,7 +48,7 @@ export class BadgesController {
   @ApiResponse({ status: 200, description: 'List of user badges' })
   async findMyBadges(
     @Request() req: ExpressRequest & { cookies?: { session?: string } },
-  ) {
+  ): Promise<{ badges: UserBadge[] }> {
     const sessionToken = req.cookies?.session;
     if (!sessionToken) {
       throw new NotFoundException('User not authenticated');

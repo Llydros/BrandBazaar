@@ -35,6 +35,7 @@ import {
 } from './products.dto';
 import { RolesGuard, Roles } from '../auth/roles.guard';
 import { UserRole } from '../entities/user.entity';
+import type { Review } from '../entities/review.entity';
 import type { Request as ExpressRequest } from 'express';
 
 @ApiTags('products')
@@ -171,7 +172,7 @@ export class ProductsController {
     @Param('id') productId: string,
     @Body() createReviewDto: CreateReviewDto,
     @Request() req: ExpressRequest & { cookies?: { session?: string } },
-  ) {
+  ): Promise<{ review: Review }> {
     const sessionToken = req.cookies?.session;
     if (!sessionToken) {
       throw new UnauthorizedException('User not authenticated');

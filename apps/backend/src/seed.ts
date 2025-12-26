@@ -78,7 +78,7 @@ async function seed() {
 
     // Create Products
     console.log('Creating products...');
-    const products = [
+    const products: Product[] = [
       productRepository.create({
         name: 'Nike Air Max 270',
         shortDescription:

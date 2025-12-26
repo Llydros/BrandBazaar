@@ -86,7 +86,9 @@ export class AdminService {
         })
         .andWhere('order.createdAt >= :start', { start: currentMonthStart })
         .getRawOne()
-        .then((result) => parseFloat(result.total || '0')),
+        .then((result: { total: string } | undefined) =>
+          parseFloat(result?.total || '0'),
+        ),
 
       this.orderRepository
         .createQueryBuilder('order')
@@ -97,7 +99,9 @@ export class AdminService {
         .andWhere('order.createdAt >= :start', { start: previousMonthStart })
         .andWhere('order.createdAt < :end', { end: currentMonthStart })
         .getRawOne()
-        .then((result) => parseFloat(result.total || '0')),
+        .then((result: { total: string } | undefined) =>
+          parseFloat(result?.total || '0'),
+        ),
 
       this.orderRepository.count({
         where: {
